@@ -1,0 +1,33 @@
+﻿<Window x:Class="UP_Excersice_11.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UP_Excersice_11"
+        mc:Ignorable="d"
+        Title="Демьянов Артём 3ПКС-220 ПР11" Height="450" Width="800" SizeToContent="WidthAndHeight" ResizeMode="CanMinimize">
+    <Grid>
+        <Menu Style="{DynamicResource MenuStyle}">
+            <MenuItem Header="Файл" Style="{DynamicResource MenuItemStyle}">
+                <MenuItem Header="Открыть">
+                    <MenuItem Header="Unicode" Click="LoadUnicodeClick" Style="{DynamicResource MenuItemStyle}"/>
+                    <MenuItem Header="Win1251" Click="LoadWin1251Click" Style="{DynamicResource MenuItemStyle}"/>
+                    <MenuItem Header="RTF" Click="LoadRTFClick" Style="{DynamicResource MenuItemStyle}"/>
+                    <MenuItem Header="Бинарный файл" Click="LoadBinaryClick" Style="{DynamicResource MenuItemStyle}"/>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="Сохранить как..." Style="{DynamicResource MenuItemStyle}">
+                    <MenuItem Header="Unicode" Click="SaveUnicodeClick" Style="{DynamicResource MenuItemStyle}"/>
+                    <MenuItem Header="Win1251" Click="SaveWin1251Click" Style="{DynamicResource MenuItemStyle}"/>
+                    <MenuItem Header="RTF" Click="SaveRTFClick" Style="{DynamicResource MenuItemStyle}"/>
+                    <MenuItem Header="Бинарный файл" Click="SaveBinaryClick" Style="{DynamicResource MenuItemStyle}"/>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+        <Border Style="{DynamicResource BorderStyle}" Height="380" Width="780" Margin="10,34,10,20" >
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,1,1,1">
+                <RichTextBox x:Name="MainRTB" Style="{DynamicResource RichTextBoxStyle}" Margin ="5,5,5,5"/>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</Window>
