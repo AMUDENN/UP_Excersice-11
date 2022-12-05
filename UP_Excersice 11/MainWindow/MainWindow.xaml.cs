@@ -70,7 +70,7 @@ namespace UP_Excersice_11
         }
         private void LoadBinaryClick(object sender, RoutedEventArgs e)
         {
-            string? fileName = OpenFileDialogName("Binary Files dat (*.dat)|*.dat|Binary Files bin (*.bin)|*.bin");
+            string? fileName = OpenFileDialogName("Binary Files (*.dat,*.bin)|*.dat;*.bin");
             if (fileName == null) return;
             MainRTB.Document.Blocks.Clear();
             MainRTB.AppendText(Encoding.Default.GetString(File.ReadAllBytes(fileName)));
