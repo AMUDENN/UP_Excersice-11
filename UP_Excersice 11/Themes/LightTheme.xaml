@@ -75,11 +75,10 @@
 
     <Style x:Key="LabelStyle" TargetType="{x:Type Label}">
         <Setter Property="FontFamily" Value="Times New Roman" />
-        <Setter Property="FontSize" Value="20" />
-        <Setter Property="FontWeight" Value="DemiBold" />
+        <Setter Property="FontSize" Value="14" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="Black" />
-        <Setter Property="HorizontalContentAlignment" Value="Right"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
     </Style>
 

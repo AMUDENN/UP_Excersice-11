@@ -7,27 +7,46 @@
         mc:Ignorable="d"
         Title="Демьянов Артём 3ПКС-220 ПР11" Height="450" Width="800" SizeToContent="WidthAndHeight" ResizeMode="CanMinimize">
     <Grid>
-        <Menu Style="{DynamicResource MenuStyle}">
+        <Menu Height="20" Style="{DynamicResource MenuStyle}">
             <MenuItem Header="Файл" Style="{DynamicResource MenuItemStyle}">
-                <MenuItem Header="Открыть">
+                <MenuItem.Icon>
+                    <Image Source="/Resources/File.png"/>
+                </MenuItem.Icon>
+                <MenuItem x:Name="Open" Header="Открыть">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/Folder.png"/>
+                    </MenuItem.Icon>
                     <MenuItem Header="Unicode" Click="LoadUnicodeClick" Style="{DynamicResource MenuItemStyle}"/>
                     <MenuItem Header="Win1251" Click="LoadWin1251Click" Style="{DynamicResource MenuItemStyle}"/>
                     <MenuItem Header="RTF" Click="LoadRTFClick" Style="{DynamicResource MenuItemStyle}"/>
                     <MenuItem Header="Бинарный файл" Click="LoadBinaryClick" Style="{DynamicResource MenuItemStyle}"/>
                 </MenuItem>
                 <Separator/>
-                <MenuItem Header="Сохранить как..." Style="{DynamicResource MenuItemStyle}">
+                <MenuItem x:Name="SaveAs" Header="Сохранить как..." Style="{DynamicResource MenuItemStyle}">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/FloppyDisk.png"/>
+                    </MenuItem.Icon>
                     <MenuItem Header="Unicode" Click="SaveUnicodeClick" Style="{DynamicResource MenuItemStyle}"/>
                     <MenuItem Header="Win1251" Click="SaveWin1251Click" Style="{DynamicResource MenuItemStyle}"/>
                     <MenuItem Header="RTF" Click="SaveRTFClick" Style="{DynamicResource MenuItemStyle}"/>
                     <MenuItem Header="Бинарный файл" Click="SaveBinaryClick" Style="{DynamicResource MenuItemStyle}"/>
                 </MenuItem>
+                <Separator/>
+                <MenuItem x:Name="Print" Header="Печать" Click="PrintClick" Style="{DynamicResource MenuItemStyle}">
+                    <MenuItem.Icon>
+                        <Image Source="/Resources/Printer.png"/>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
         </Menu>
-        <Border Style="{DynamicResource BorderStyle}" Height="380" Width="780" Margin="10,34,10,20" >
+        <Border Style="{DynamicResource BorderStyle}" Height="350" Width="780" Margin="10,39,10,45" >
             <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,1,1,1">
                 <RichTextBox x:Name="MainRTB" Style="{DynamicResource RichTextBoxStyle}" Margin ="5,5,5,5"/>
             </ScrollViewer>
         </Border>
+        <Label Content="Открыт файл: " Height="30" Width="100" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Left" Margin="10,394,690,10"/>
+        <Label x:Name="FileName" Height="30" Width="200" Content="Новый файл" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Left" Margin="115,394,485,10"/>
+        <Label Content="Кодировка: " Height="30" Width="100" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Right" Margin="585,394,115,10"/>
+        <Label x:Name="Charset" Height="30" Width="100" Content="" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Left" Margin="690,394,10,10"/>
     </Grid>
 </Window>

@@ -6,11 +6,29 @@
     <RootNamespace>UP_Excersice_11</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>MainWindow\Icon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Icon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="MainWindow\Icon.ico" />
+    <None Remove="Resources\File.png" />
+    <None Remove="Resources\FloppyDisk.png" />
+    <None Remove="Resources\Folder.png" />
+    <None Remove="Resources\Printer.ico" />
+    <None Remove="Resources\Printer.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\File.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\FloppyDisk.png" />
+    <Resource Include="Resources\Folder.png" />
+    <Resource Include="Resources\Printer.png" />
   </ItemGroup>
 
 </Project>
