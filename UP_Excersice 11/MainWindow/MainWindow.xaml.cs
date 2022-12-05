@@ -22,10 +22,21 @@ namespace UP_Excersice_11
             if (ActionConfirmation("Вы уверены, что хотите закрыть приложение?") == MessageBoxResult.No) e.Cancel = true;
         }
         private static MessageBoxResult ActionConfirmation(string question) => MessageBox.Show(question, "Подтвердите действие", MessageBoxButton.YesNo, MessageBoxImage.Question);
-        private void ChangeFile(string fileName, string currentCharset)
+        private void ChangeFile(string fileName, string? charset)
         {
             FileName.Content = fileName.Split('\\').Last();
-            Charset.Content = currentCharset;
+            if (charset == null)
+            {
+                Charset.Visibility = Visibility.Hidden;
+                CharsetTitle.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                Charset.Visibility = Visibility.Visible;
+                CharsetTitle.Visibility = Visibility.Visible;
+            }
+            Charset.Content = charset;
+            Extension.Content = fileName.Split('.').Last();
         }
         private static string? OpenFileDialogName(string filter)
         {
@@ -40,6 +51,14 @@ namespace UP_Excersice_11
             sfd.Filter = filter;
             if (sfd.ShowDialog() == false) return null;
             return sfd.FileName;
+        }
+        private void AddClick(object sender, RoutedEventArgs e)
+        {
+            FileName.Content = "Новый файл";
+            Charset.Visibility = Visibility.Hidden;
+            CharsetTitle.Visibility = Visibility.Hidden;
+            Extension.Content = "";
+            MainRTB.Document.Blocks.Clear();
         }
         private void LoadUnicodeClick(object sender, RoutedEventArgs e)
         {
@@ -66,7 +85,7 @@ namespace UP_Excersice_11
             MainRTB.Document.Blocks.Clear();
             using FileStream fs = new(fileName, FileMode.Open);
             new TextRange(MainRTB.Document.ContentStart, MainRTB.Document.ContentEnd).Load(fs, DataFormats.Rtf);
-            ChangeFile(fileName, "RTF");
+            ChangeFile(fileName, null);
         }
         private void LoadBinaryClick(object sender, RoutedEventArgs e)
         {
@@ -74,7 +93,7 @@ namespace UP_Excersice_11
             if (fileName == null) return;
             MainRTB.Document.Blocks.Clear();
             MainRTB.AppendText(Encoding.Default.GetString(File.ReadAllBytes(fileName)));
-            ChangeFile(fileName, "Binary");
+            ChangeFile(fileName, null);
         }
         private void SaveUnicodeClick(object sender, RoutedEventArgs e)
         {
@@ -97,7 +116,7 @@ namespace UP_Excersice_11
             string? fileName = SaveFileDialogName("RichText Files (*.rtf)|*.rtf");
             if (fileName == null) return;
             new TextRange(MainRTB.Document.ContentStart, MainRTB.Document.ContentEnd).Save(File.Create(fileName), DataFormats.Rtf);
-            ChangeFile(fileName, "RTF");
+            ChangeFile(fileName, null);
         }
         private void SaveBinaryClick(object sender, RoutedEventArgs e)
         {
@@ -105,7 +124,7 @@ namespace UP_Excersice_11
             if (fileName == null) return;
             using BinaryWriter writer = new (File.Open(fileName, FileMode.Create));
             writer.Write(new TextRange(MainRTB.Document.ContentStart, MainRTB.Document.ContentEnd).Text);
-            ChangeFile(fileName, "Binary");
+            ChangeFile(fileName, null);
         }
         private void PrintClick(object sender, RoutedEventArgs e)
         {

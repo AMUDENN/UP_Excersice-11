@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Add.png" />
     <None Remove="Resources\File.png" />
     <None Remove="Resources\FloppyDisk.png" />
     <None Remove="Resources\Folder.png" />
@@ -22,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\Add.png" />
     <Resource Include="Resources\File.png" />
   </ItemGroup>
 
