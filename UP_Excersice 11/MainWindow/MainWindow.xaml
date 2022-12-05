@@ -17,6 +17,7 @@
                         <Image Source="/Resources/Add.png"/>
                     </MenuItem.Icon>
                 </MenuItem>
+                <Separator/>
                 <MenuItem Header="Открыть">
                     <MenuItem.Icon>
                         <Image Source="/Resources/Folder.png"/>
@@ -52,8 +53,8 @@
         <Label Content="Открыт файл: " Height="30" Width="100" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Left" Margin="10,394,690,10"/>
         <Label x:Name="FileName" Height="30" Width="200" Content="Новый файл" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Left" Margin="115,394,485,10"/>
         <Label x:Name="CharsetTitle" Content="Кодировка: " Visibility="Hidden" Height="30" Width="100" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Right" Margin="430,394,270,10"/>
-        <Label x:Name="Charset" Height="30" Width="100" Visibility="Hidden" Content="" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Left" Margin="535,394,165,10"/>
-        <Label Content="Расширение: " Height="30" Width="100" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Right" Margin="640,394,60,10"/>
-        <Label x:Name="Extension" Height="30" Width="50" Content="" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Left" Margin="740,394,10,10"/>
+        <Label x:Name="Charset" Visibility="Hidden" Height="30" Width="100" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Left" Margin="535,394,165,10"/>
+        <Label x:Name="ExtensionTitle" Content="Расширение: " Visibility="Hidden" Height="30" Width="100" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Right" Margin="640,394,60,10"/>
+        <Label x:Name="Extension" Visibility="Hidden" Height="30" Width="50" Style="{DynamicResource LabelStyle}" HorizontalContentAlignment="Left" Margin="740,394,10,10"/>
     </Grid>
 </Window>

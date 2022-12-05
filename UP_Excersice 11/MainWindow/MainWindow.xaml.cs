@@ -25,6 +25,8 @@ namespace UP_Excersice_11
         private void ChangeFile(string fileName, string? charset)
         {
             FileName.Content = fileName.Split('\\').Last();
+            Extension.Visibility = Visibility.Visible;
+            ExtensionTitle.Visibility = Visibility.Visible;
             if (charset == null)
             {
                 Charset.Visibility = Visibility.Hidden;
@@ -57,6 +59,8 @@ namespace UP_Excersice_11
             FileName.Content = "Новый файл";
             Charset.Visibility = Visibility.Hidden;
             CharsetTitle.Visibility = Visibility.Hidden;
+            Extension.Visibility = Visibility.Hidden;
+            ExtensionTitle.Visibility = Visibility.Hidden;
             Extension.Content = "";
             MainRTB.Document.Blocks.Clear();
         }
