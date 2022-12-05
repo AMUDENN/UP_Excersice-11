@@ -103,7 +103,7 @@ namespace UP_Excersice_11
         {
             string? fileName = SaveFileDialogName("Binary Files dat (*.dat)|*.dat|Binary Files bin (*.bin)|*.bin");
             if (fileName == null) return;
-            using BinaryWriter writer = new BinaryWriter(File.Open(fileName, FileMode.Create));
+            using BinaryWriter writer = new (File.Open(fileName, FileMode.Create));
             writer.Write(new TextRange(MainRTB.Document.ContentStart, MainRTB.Document.ContentEnd).Text);
             ChangeFile(fileName, "Binary");
         }
