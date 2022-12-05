@@ -103,7 +103,7 @@ namespace UP_Excersice_11
         {
             string? fileName = SaveFileDialogName("Text Files (*.txt)|*.txt");
             if (fileName == null) return;
-            using StreamWriter writer = new(fileName, false, Encoding.UTF8);
+            using StreamWriter writer = new(fileName, false, Encoding.Unicode);
             writer.Write(new TextRange(MainRTB.Document.ContentStart, MainRTB.Document.ContentEnd).Text);
             ChangeFile(fileName, "Unicode");
         }
